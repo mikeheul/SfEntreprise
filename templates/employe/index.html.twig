@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des employés{% endblock %}
+
+{% block body %}
+
+    <h1>Liste des employés <span class="bdg-primary">{{ employes | length }}</span></h1>
+
+    <div>
+      <h5>Rechercher par employé ou par entreprise</h5>
+      {{ render(controller('App\\Controller\\SearchController::search')) }}
+    </div>
+
+    <p><a class="btn btn-success mt-3" href="{{ path('add_employe') }}"><i class="bi bi-plus-circle"></i> Ajouter un employé</a></p>
+
+    <table class="table table-striped mt-5">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>EMPLOYE</th>
+                <th>ENTREPRISE</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employe in employes %}
+            <tr class="align-middle">
+                <td>{{ employe.id }}</td>
+                <td><a href="{{ path('show_employe', {'id': employe.id} ) }}">{{ employe }}</a></td>
+                <td><a href="{{ path('show_entreprise', {'id': employe.entreprise.id} ) }}">{{ employe.entreprise }}</a></td>
+                <td>
+                    {# <a data-bs-toggle="modal" data-bs-target="#modalSupp" class="btn btn-danger" href="{{ path('delete_employe', {'id': employe.id }) }}"><i class="bi bi-trash"></i></a> #}
+                    <a class="btn btn-action btn-danger" href="{{ path('delete_employe', {'id': employe.id }) }}"><i class="bi bi-trash"></i></a>
+                    <a class="btn btn-action btn-warning" href="{{ path('update_employe', {'id': employe.id }) }}"><i class="bi bi-pencil-square"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="modalSupp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Suppression</h5>
+              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                Souhaitez-vous vraiment supprimer cet élément ?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+              <a class="btn btn-primary" href="{{ path('app_employe') }}">Confirmer</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+{% endblock %}

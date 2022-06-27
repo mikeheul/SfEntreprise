@@ -1,0 +1,89 @@
+:root {
+    --primary : rgb(0, 47, 78);
+}
+
+body {
+    min-height: 100vh;
+    background-color: rgb(242, 242, 242);
+}
+
+h1 {
+    color: var(--primary)
+}
+
+input, select {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.input-important {
+    background-color: rgb(235, 235, 235);
+}
+
+.bdg-primary {
+    display: inline-flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary);
+    color: #fff;
+    font-size: 13px;
+    padding: 5px;
+    top: -15px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.btn-warning {
+    color: #fff;
+}
+
+.photo_employe {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 30px;
+    object-fit: cover;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; 
+}
+
+.card {
+    padding-bottom: 10px;
+}
+
+.card-blue {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.card-yellow {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.card-content {
+    display: flex;
+}
+
+.card-content-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    font-size: 6em;
+}
+
+.btn {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.btn-action {
+    /* border-radius: 50%; */
+}
+
+.fwb-red {
+    color: red;
+    font-weight: 600;
+}

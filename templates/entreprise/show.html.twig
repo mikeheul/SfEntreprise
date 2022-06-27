@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail d'une entreprise{% endblock %}
+
+{% block body %}
+
+    <h1><span><i class="bi bi-building"></i>&nbsp;</span>{{ entreprise }}</h1>
+
+    <p><a title="Editer" class="btn btn-warning" href="{{ path('update_entreprise', {'id': entreprise.id }) }}"><i class="bi bi-pencil-square"></i></a></p>
+
+    <p>
+        <strong>Date de création :</strong> 
+        {% if entreprise.dateCreation is not null %} 
+            {{ entreprise.dateCreation | date('d-m-Y') ~ ' (' ~ entreprise.anciennete ~ ')'}} 
+        {% else %}
+            <span>N/A</span>    
+        {% endif %} <br>
+            
+        <strong>Adresse :</strong> {{ entreprise.adresseComplete }} <br>
+    </p>
+
+    <h2 class="mt-5">Liste des employés <span class="bdg-primary">{{ entreprise.employes | length }}</span></h2>
+
+    <table class="table table-striped">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Employé</th>
+                <th>Date d'embauche</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employe in entreprise.employes %}
+            <tr class="align-middle">
+                <td><a href="{{ path('show_employe', {'id': employe.id }) }}">{{ employe }}</a></td>
+                <td>{{ employe.dateEmbaucheFr }}</td>
+                <td>
+                    <a class="btn btn-action btn-danger" href="{{ path('delete_employe', {'id': employe.id }) }}"><i class="bi bi-trash"></i></a>
+                    <a class="btn btn-action btn-warning" href="{{ path('update_employe', {'id': employe.id }) }}"><i class="bi bi-pencil-square"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

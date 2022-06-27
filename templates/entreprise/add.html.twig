@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une entreprise{% endblock %}
+
+{% block body %}
+
+    {% if editMode %}
+        <h1>Editer une entreprise</h1>
+    {% else %}
+        <h1>Ajouter une entreprise</h1>
+    {% endif %}
+
+    {# {{ form(form) }} #}
+
+    {{ form_start(form) }}
+        <div>
+            {{ form_errors(form) }}
+        </div>
+
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.raisonSociale) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.siret) }}
+            </div>
+        </div>
+        <div class="row">
+            {{ form_row(form.dateCreation) }}
+        </div>
+        <div class="row">
+            {{ form_row(form.adresse) }}
+            <div class="col">
+                {{ form_row(form.cp) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.ville) }}
+            </div>
+        </div>
+    {{ form_end(form) }}
+
+{% endblock %}

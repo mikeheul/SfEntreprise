@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+
+{% block body %}
+{% if app.request.method == 'POST' %}
+    <div>
+        {% if employes | length == 0 %}
+            <h4>Aucun résulat pour votre recherche.</h4>
+           {% else %}
+               <h3 class="mt-3">Vos résultats de recherche :</h3>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Employé</th>
+                            <th>Entreprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for employe in employes %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('show_employe', {'id': employe.id}) }}">{{ employe }}</a>
+                        </td>
+                        <td>
+                            <a href="{{ path('show_entreprise', {'id': employe.entreprise.id}) }}">{{ employe.entreprise }}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+          {% endif %}
+     </div>
+{% endif %}
+{% endblock %}

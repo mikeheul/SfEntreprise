@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des entreprises{% endblock %}
+
+{% block body %}
+
+    <h1>Liste des entreprises <span class="bdg-primary">{{ entreprises | length }}</span></h1>
+
+    <div>
+        <h5>Rechercher par employé ou par entreprise</h5>
+        {{ render(controller('App\\Controller\\SearchController::search')) }}
+    </div>
+
+    <p><a class="btn btn-success mt-3" href="{{ path('add_entreprise') }}"><i class="bi bi-plus-circle"></i> Ajouter une entreprise</a></p>
+
+    <table class="table table-striped mt-5">
+        <thead class="table-dark">
+            <tr>
+                <th>#</th>
+                <th>ENTREPRISE</th>
+                <th>EMPLOYES</th>
+                <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entreprise in entreprises %}
+            <tr class="align-middle">
+                <td>{{ entreprise.id }}</td>
+                <td><a href="{{ path('show_entreprise', {'id': entreprise.id} ) }}">{{ entreprise | upper }}</a></td>
+                <td>{{ entreprise.employes | length }}</td>
+                <td>
+                    <a class="btn btn-action btn-danger" href="{{ path('delete_entreprise', {'id': entreprise.id }) }}"><i class="bi bi-trash"></i></a>
+                    <a class="btn btn-action btn-warning" href="{{ path('update_entreprise', {'id': entreprise.id }) }}"><i class="bi bi-pencil-square"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

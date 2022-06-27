@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail d'une employé{% endblock %}
+
+{% block body %}
+
+    <h1><span><i class="bi bi-person"></i>&nbsp;</span>{{ employe }}</h1>
+
+    <p><a title="Editer" class="btn btn-warning" href="{{ path('update_employe', {'id': employe.id }) }}"><i class="bi bi-pencil-square"></i></a></p>
+
+    <p>
+        <img class="photo_employe" src="{{ asset('uploads/photo_employes/' ~ employe.photo) }}" alt="">
+    </p>
+
+    <p>
+        <strong>Entreprise :</strong> <a href="{{ path('show_entreprise', {'id':employe.entreprise.id}) }}">{{ employe.entreprise }}</a> <br>
+        <strong>Date d'embauche :</strong> {{ employe.dateEmbauche | date('d-m-Y') ~ ' (' ~ employe.anciennete ~ ')' }} <br>
+        <strong>Adresse :</strong> {{ employe.adresseComplete }} <br>
+        <strong>Date de naissance :</strong> {{ employe.dateNaissance | date('d-m-Y') ~ ' (' ~ employe.age ~ ')'}} <br>
+    </p>
+
+    <h3 class="mt-5">Collègues <span class="bdg-primary">{{ employe.collegues | length }}</span></h3>
+    
+    <table class="table table-striped">
+        <thead class="bg-dark text-light">
+            <tr>
+                <th>Employé</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if employe.collegues | length == 0 %}
+               <tr><td>Aucun collègue référencé</td></tr> 
+            {% else %}
+                {% for emp in employe.collegues %}
+                    <tr><td><a href="{{ path('show_employe', {'id':emp.id}) }}">{{ emp }}</a></td></tr>
+                {% endfor %} 
+            {% endif %}
+        </tbody>
+    </table>
+
+{% endblock %}

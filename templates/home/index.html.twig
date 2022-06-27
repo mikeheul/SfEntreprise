@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    <h1>Application Entreprises / Employés</h1>
+
+    <p>Bienvenue dans cette application permettant la gestion d'entreprises et de salariés. Ce projet sert d'introduction à Symfony.</p>
+
+    <div class="row mt-5">
+        <div class="col-sm-6">
+            <div class="card card-blue bg-info text-light">
+                <div class="card-content">
+                    <div class="card-body">
+                        <h5 class="card-title">Entreprises</h5>
+                        <a href="{{ path('app_entreprise') }}" class="btn btn-light"><i class="bi bi-list"></i> Lister les entreprises</a>
+                    </div>
+                    <div class="card-content-right">
+                        <p class="card-text display-4">{{ nbEntreprises }} <sup class="display-6">entreprises</sup></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card card-yellow bg-warning text-light">
+                <div class="card-content">
+                    <div class="card-body">
+                        <h5 class="card-title">Employés</h5>
+                        <a href="{{ path('app_employe') }}" class="btn btn-light"><i class="bi bi-list"></i> Lister les employés</a>
+                    </div>
+                    <div class="card-content-right">
+                        <p class="card-text display-4">{{ nbEmployes }} <sup class="display-6">employés</sup></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# {{ render_chart(chart) }} #}
+    
+{% endblock %}

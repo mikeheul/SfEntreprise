@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Entrez un mot-clé</source>
+                <target>Entrez un mot-clé</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Rechercher</source>
+                <target>Rechercher</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Raison sociale</source>
+                <target>Raison sociale</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Siret</source>
+                <target>Siret</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Ex: 123456789</source>
+                <target>Ex: 123456789</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Date de création</source>
+                <target>Date de création</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Adresse</source>
+                <target>Adresse</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Code postal</source>
+                <target>Code postal</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Ville</source>
+                <target>Ville</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Valider</source>
+                <target>Valider</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Nom</source>
+                <target>Nom</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Prénom</source>
+                <target>Prénom</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Date de naissance</source>
+                <target>Date de naissance</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Photo</source>
+                <target>Photo</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Date d'embauche</source>
+                <target>Date d'embauche</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Entreprise</source>
+                <target>Entreprise</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

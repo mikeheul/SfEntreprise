@@ -1,0 +1,13 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.query) }}
+        </div>
+        <div class="col">
+            {# {{ form_row(form.rechercher) }} #}
+            <button type="submit" class="btn btn-secondary" value="Rechercher">
+                <i class="bi bi-search"></i> Rechercher
+            </button>
+        </div>
+    </div>
+{{ form_end(form) }}
